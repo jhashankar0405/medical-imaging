@@ -14,7 +14,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - name: Check out repo
-      uses: actions/checkout@main
+      uses: actions/checkout@fractal-poc
     - name: Install az ml extension
       run: az extension add -n ml -y
     - name: Azure login
