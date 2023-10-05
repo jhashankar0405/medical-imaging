@@ -19,8 +19,12 @@ jobs:
       run: az extension add -n ml -y
     - name: Azure login
       uses: azure/actions/login@v1
+      # with:
+      #   creds: ${{secrets.AZURE_CREDENTIALS}}
+      env:
+        CREDENTIALS: ${{ secrets.AZURE_CREDENTIALS }}
       with:
-        creds: ${{secrets.AZURE_CREDENTIALS}}
+        creds: $CREDENTIALS
     - name: Provision resources
       run: |
         az configure --defaults group="${{ github.event.inputs.resource_group }}"
